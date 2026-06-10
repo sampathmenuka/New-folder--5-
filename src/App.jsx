@@ -3,6 +3,7 @@ import Stepper from './components/Stepper';
 import LockScreen from './components/LockScreen';
 import VitalModal from './components/VitalModal';
 import AdminConsole from './components/AdminConsole';
+import logo from './assets/logo.jpg';
 import { 
     calculateATSResult, 
     appendTriageToLedger, 
@@ -395,10 +396,8 @@ export default function App() {
             
             {/* HEADER CONTROLS BAR */}
             <header className="app-header">
-                <div className="header-brand">
-                    <svg className="icon-pulse" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M22 12h-4l-3 9L9 3l-3 9H2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                <div className="header-brand" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <img src={logo} alt="EMergeSL Logo" style={{ height: '38px', objectFit: 'contain', borderRadius: '4px', background: '#ffffff', padding: '2px' }} />
                     <div className="brand-text">
                         <h1>TRIAGE360</h1>
                         <span className="brand-sub">Emergency Medicine Triage System</span>
