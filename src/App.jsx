@@ -135,6 +135,14 @@ export default function App() {
         }
     }, [highContrast]);
 
+    useEffect(() => {
+        if (isBlurred) {
+            document.body.classList.add('blur-sensitive-active');
+        } else {
+            document.body.classList.remove('blur-sensitive-active');
+        }
+    }, [isBlurred]);
+
     // Scroll to top when screen transitions
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
