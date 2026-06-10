@@ -43,12 +43,11 @@ export const VitalsConfig = {
             { text: '≥ 30 / min (Extremely High)', severity: 'red', label: 'Severe' }
         ],
         adult: [
-            { text: '≤ 8 / min (Very Low)', severity: 'red', label: 'Severe' },
-            { text: '8 – 9 / min (Mildly Low)', severity: 'orange', label: 'Moderate' },
-            { text: '10 – 20 / min (Normal)', severity: 'green', label: 'Normal' },
-            { text: '21 – 24 / min (Elevated)', severity: 'yellow', label: 'Mild' },
-            { text: '25 – 29 / min (High)', severity: 'orange', label: 'Moderate' },
-            { text: '≥ 30 / min (Extremely High)', severity: 'red', label: 'Severe' }
+            { text: '≤ 8 / min (Critical Low)', severity: 'red', label: 'Severe' },
+            { text: '9 – 11 / min (Mildly Low)', severity: 'yellow', label: 'Mild' },
+            { text: '12 – 20 / min (Normal)', severity: 'green', label: 'Normal' },
+            { text: '21 – 24 / min (Mildly High)', severity: 'orange', label: 'Moderate' },
+            { text: '≥ 25 / min (Critical High)', severity: 'red', label: 'Severe' }
         ]
     },
     spo2: {
@@ -57,12 +56,26 @@ export const VitalsConfig = {
             { text: '94% – 95% (Mild Hypoxaemia)', severity: 'yellow', label: 'Mild' },
             { text: '92% – 93% (Moderate Hypoxaemia)', severity: 'orange', label: 'Moderate' },
             { text: '≤ 91% (Severe Hypoxaemia)', severity: 'red', label: 'Severe' }
+        ],
+        adult: [
+            { text: 'Scale 1: ≥ 96% (Normal)', severity: 'green', label: 'Normal' },
+            { text: 'Scale 1: 94% – 95% (Mild)', severity: 'yellow', label: 'Mild' },
+            { text: 'Scale 1: 92% – 93% (Moderate)', severity: 'orange', label: 'Moderate' },
+            { text: 'Scale 1: ≤ 91% (Severe)', severity: 'red', label: 'Severe' },
+            { text: 'Scale 2: 88% – 92% or ≥ 93% on room air (Normal)', severity: 'green', label: 'Normal' },
+            { text: 'Scale 2: 86% – 87% (Mild)', severity: 'yellow', label: 'Mild' },
+            { text: 'Scale 2: 84% – 85% (Moderate)', severity: 'orange', label: 'Moderate' },
+            { text: 'Scale 2: ≤ 83% (Severe)', severity: 'red', label: 'Severe' }
         ]
     },
     o2: {
         universal: [
             { text: 'Room Air (Normal Support)', severity: 'green', label: 'Normal' },
             { text: 'Supplemental Oxygen (Therapy)', severity: 'red', label: 'Severe' }
+        ],
+        adult: [
+            { text: 'Breathing Room Air (Normal)', severity: 'green', label: 'Normal' },
+            { text: 'Receiving Supplemental Oxygen (Therapy)', severity: 'red', label: 'Severe' }
         ]
     },
     sbp: {
@@ -79,13 +92,11 @@ export const VitalsConfig = {
             { text: '> 100 mmHg (Elevated BP)', severity: 'yellow', label: 'Mild' }
         ],
         adult: [
-            { text: '≤ 90 mmHg (Severe Hypotension)', severity: 'red', label: 'Severe' },
-            { text: '91 – 100 mmHg (Moderate Hypotension)', severity: 'orange', label: 'Moderate' },
-            { text: '101 – 110 mmHg (Mild Hypotension)', severity: 'yellow', label: 'Mild' },
-            { text: '111 – 140 mmHg (Normal Range)', severity: 'green', label: 'Normal' },
-            { text: '141 – 180 mmHg (Stage 1 Hypertension)', severity: 'yellow', label: 'Mild' },
-            { text: '181 – 219 mmHg (Stage 2 Hypertension)', severity: 'orange', label: 'Moderate' },
-            { text: '≥ 220 mmHg (Hypertensive Crisis)', severity: 'red', label: 'Severe' }
+            { text: '≤ 90 mmHg (Critical Low)', severity: 'red', label: 'Severe' },
+            { text: '91 – 100 mmHg (Low)', severity: 'orange', label: 'Moderate' },
+            { text: '101 – 110 mmHg (Mildly Low)', severity: 'yellow', label: 'Mild' },
+            { text: '111 – 219 mmHg (Normal / Borderline High)', severity: 'green', label: 'Normal' },
+            { text: '≥ 220 mmHg (Critical High)', severity: 'red', label: 'Severe' }
         ]
     },
     pulse: {
@@ -125,13 +136,12 @@ export const VitalsConfig = {
             { text: '> 120 bpm (Severe Tachycardia)', severity: 'red', label: 'Severe' }
         ],
         adult: [
-            { text: '< 40 bpm (Bradycardia)', severity: 'red', label: 'Severe' },
-            { text: '40 – 50 bpm (Borderline Low)', severity: 'orange', label: 'Moderate' },
-            { text: '51 – 59 bpm (Mildly Low)', severity: 'yellow', label: 'Mild' },
-            { text: '60 – 100 bpm (Normal Range)', severity: 'green', label: 'Normal' },
-            { text: '101 – 110 bpm (Mild Tachycardia)', severity: 'yellow', label: 'Mild' },
-            { text: '111 – 130 bpm (Moderate Tachycardia)', severity: 'orange', label: 'Moderate' },
-            { text: '> 130 bpm (Severe Tachycardia)', severity: 'red', label: 'Severe' }
+            { text: '≤ 40 bpm (Critical Low)', severity: 'red', label: 'Severe' },
+            { text: '41 – 50 bpm (Low)', severity: 'orange', label: 'Moderate' },
+            { text: '51 – 60 bpm (Normal Low)', severity: 'green', label: 'Normal' },
+            { text: '61 – 90 bpm (Normal)', severity: 'green', label: 'Normal' },
+            { text: '91 – 130 bpm (High)', severity: 'yellow', label: 'Mild' },
+            { text: '≥ 131 bpm (Critical High)', severity: 'red', label: 'Severe' }
         ]
     },
     avpu: {
@@ -140,6 +150,12 @@ export const VitalsConfig = {
             { text: 'V - Voice (Responds only to voice)', severity: 'yellow', label: 'Mild' },
             { text: 'P - Pain (Responds only to pain)', severity: 'orange', label: 'Moderate' },
             { text: 'U - Unresponsive (Flaccid / Unconscious)', severity: 'red', label: 'Severe' }
+        ],
+        adult: [
+            { text: 'A - Alert (Conscious)', severity: 'green', label: 'Normal' },
+            { text: 'V - Voice (Not Alert)', severity: 'red', label: 'Severe' },
+            { text: 'P - Pain (Not Alert)', severity: 'red', label: 'Severe' },
+            { text: 'U - Unresponsive (Not Alert)', severity: 'red', label: 'Severe' }
         ]
     },
     temp: {
@@ -149,6 +165,13 @@ export const VitalsConfig = {
             { text: '36.1 – 38.0 °C (Normal Range)', severity: 'green', label: 'Normal' },
             { text: '38.1 – 39.0 °C (Mild Fever)', severity: 'yellow', label: 'Mild' },
             { text: '≥ 39.1 °C (High Fever)', severity: 'red', label: 'Severe' }
+        ],
+        adult: [
+            { text: '≤ 35.0 °C (Critical Low)', severity: 'red', label: 'Severe' },
+            { text: '35.1 – 36.0 °C (Mildly Low)', severity: 'orange', label: 'Moderate' },
+            { text: '36.1 – 38.0 °C (Normal Range)', severity: 'green', label: 'Normal' },
+            { text: '38.1 – 39.0 °C (High)', severity: 'yellow', label: 'Mild' },
+            { text: '≥ 39.1 °C (Critical High)', severity: 'red', label: 'Severe' }
         ]
     }
 };

@@ -2312,3 +2312,47 @@ body.theme-dark .modal-overlay {
         width: 100%;
     }
 }
+
+/* Paediatric Lock Styles */
+.tile-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.lock-badge {
+    position: absolute;
+    top: -4px;
+    right: -12px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.lock-badge.locked {
+    background: var(--cat-1);
+    color: var(--text-white);
+}
+
+.lock-badge.unlocked {
+    background: var(--cat-4);
+    color: var(--bg-dark);
+}
+
+.lock-badge:hover {
+    transform: scale(1.1);
+}
+
+/* Extra overlay customization for Pediatric */
+.pediatric-lock-card {
+    border-color: var(--teal-start) !important;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2) !important;
+}
+

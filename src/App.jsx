@@ -9,6 +9,8 @@ import {
     getTriageLedger 
 } from './utils/triageLogic';
 
+// Paediatric section is fully locked/restricted to all users as per latest security rules.
+
 export default function App() {
     // --------------------------------------------------------------------------
     // GLOBAL STATE VARIABLES
@@ -18,6 +20,7 @@ export default function App() {
     const [isLocked, setIsLocked] = useState(false);
     const [isBlurred, setIsBlurred] = useState(false);
     const [highContrast, setHighContrast] = useState(false);
+    // Paediatric triage is locked for all users
     const [theme, setTheme] = useState(() => {
         return localStorage.getItem('ae_triage_theme') || 'light';
     });
@@ -105,6 +108,7 @@ export default function App() {
         });
         setCurrentScreen(1);
         setSecondsRemaining(90);
+        // Paediatric always remains locked
     };
 
     // Initialize Token on load
@@ -130,6 +134,11 @@ export default function App() {
             document.body.classList.remove('high-contrast');
         }
     }, [highContrast]);
+
+    // Scroll to top when screen transitions
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentScreen]);
 
     // --------------------------------------------------------------------------
     // INACTIVITY AUTO-LOCK TICKER EFFECT
@@ -188,6 +197,10 @@ export default function App() {
     };
 
     const handleSelectAgeGroup = (group) => {
+        if (group === 'paediatric' || ['neonate', 'infant', 'toddler', 'child', 'adolescent'].includes(group)) {
+            return; // Access completely restricted
+        }
+
         let exact = null;
         if (group === 'neonate' || group === 'infant') exact = 0;
         if (group === 'adult') exact = 16;
@@ -489,10 +502,35 @@ export default function App() {
                                     <button 
                                         key={group.id} 
                                         className={`age-tile ${isActive ? 'active' : ''}`}
-                                        disabled={false}
+                                        disabled={group.id === 'paediatric'}
                                         onClick={() => handleSelectAgeGroup(group.id)}
                                     >
-                                        <div className="tile-icon">{group.icon}</div>
+                                        <div className="tile-icon-container">
+                                            <div className="tile-icon">{group.icon}</div>
+                                            {group.id === 'paediatric' && (
+                                                <span 
+                                                    className="lock-badge locked"
+                                                    title="Paediatric section is locked - access restricted"
+                                                    style={{
+                                                        position: 'absolute',
+                                                        top: '-5px',
+                                                        right: '-15px',
+                                                        background: 'var(--cat-1)',
+                                                        borderRadius: '50%',
+                                                        width: '24px',
+                                                        height: '24px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        fontSize: '14px',
+                                                        border: '2px solid var(--border-color)',
+                                                        cursor: 'not-allowed'
+                                                    }}
+                                                >
+                                                    🔒
+                                                </span>
+                                            )}
+                                        </div>
                                         <h3>{group.label}</h3>
                                         <span className="tile-desc">{group.desc}</span>
                                     </button>
@@ -1231,6 +1269,8 @@ export default function App() {
 
             {/* KEYPAD LOCK OVERLAY */}
             <LockScreen isLocked={isLocked} onUnlock={() => setIsLocked(false)} />
+
+            {/* PAEDIATRIC TRIAGE LOCK ALWAYS ACTIVE */}
 
             {/* PHYSIOLOGICAL OPTIONS BOTTOM SHEETS */}
             <VitalModal 

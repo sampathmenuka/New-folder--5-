@@ -20,9 +20,9 @@ export default function VitalModal({ parameter, patient, isOpen, onClose, onSele
     if (parameter === 'rr') {
         optList = VitalsConfig.rr[age] || VitalsConfig.rr.adult;
     } else if (parameter === 'spo2') {
-        optList = VitalsConfig.spo2.universal;
+        optList = VitalsConfig.spo2[age] || VitalsConfig.spo2.universal;
     } else if (parameter === 'o2') {
-        optList = VitalsConfig.o2.universal;
+        optList = VitalsConfig.o2[age] || VitalsConfig.o2.universal;
     } else if (parameter === 'sbp') {
         if (age === 'adult') {
             optList = VitalsConfig.sbp.adult;
@@ -43,9 +43,9 @@ export default function VitalModal({ parameter, patient, isOpen, onClose, onSele
     } else if (parameter === 'pulse') {
         optList = VitalsConfig.pulse[age] || VitalsConfig.pulse.adult;
     } else if (parameter === 'avpu') {
-        optList = VitalsConfig.avpu.universal;
+        optList = VitalsConfig.avpu[age] || VitalsConfig.avpu.universal;
     } else if (parameter === 'temp') {
-        optList = VitalsConfig.temp.universal;
+        optList = VitalsConfig.temp[age] || VitalsConfig.temp.universal;
     }
 
     let ageStr = age ? age.toUpperCase() : 'ADULT';
