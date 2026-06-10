@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * SRI LANKAN EMERGENCY MEDICINE TRIAGE SYSTEM - CLINICAL LOGIC & LEDGER ENGINE
+ * TRIAGE360 - CLINICAL LOGIC & LEDGER ENGINE
  * ============================================================================
  */
 
@@ -204,7 +204,7 @@ export function getTriageLedger() {
             timestamp: genesisTimestamp,
             patientToken: 'GENESIS_BLOCK',
             prevHash: '0000000000000000000000000000000000000000000000000000000000000000',
-            data: { notes: 'Sri Lankan EMTS Ledger Chain Initialized' }
+            data: { notes: 'Triage360 Ledger Chain Initialized' }
         };
         genesisBlock.hash = computeHash(genesisBlock.index + genesisBlock.timestamp + genesisBlock.patientToken + JSON.stringify(genesisBlock.data) + genesisBlock.prevHash);
         

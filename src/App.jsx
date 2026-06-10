@@ -355,7 +355,7 @@ export default function App() {
 
     const handleShareSummary = () => {
         const res = calculateATSResult(patient);
-        let summaryText = `=== SRI LANKAN EMTS REPORT ===\n`;
+        let summaryText = `=== TRIAGE360 REPORT ===\n`;
         summaryText += `Patient Token: ${patient.token}\n`;
         summaryText += `Acuity Class: ${res.name}\n`;
         summaryText += `Seen Target: ${res.time}\n`;
@@ -392,7 +392,7 @@ export default function App() {
                         <path d="M22 12h-4l-3 9L9 3l-3 9H2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <div className="brand-text">
-                        <h1>SRI LANKAN</h1>
+                        <h1>TRIAGE360</h1>
                         <span className="brand-sub">Emergency Medicine Triage System</span>
                     </div>
                 </div>
